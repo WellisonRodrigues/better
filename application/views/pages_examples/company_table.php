@@ -5,6 +5,7 @@
  * Date: 28/03/2018
  * Time: 23:46
  */
+
 ?>
 
 <div class="container" style="margin-top: 1%; margin-bottom: 2%">
@@ -27,32 +28,16 @@
 		$id_table = 'teste';
 		$this->perfecttable->setTableTemplate($id_table);
 		$this->table->set_heading(array('Empresas', 'Área', 'CEP', 'Cidade - Estado', 'Principal contato', '', ''));
-
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		foreach ($company as $row) {
+			foreach ($row as $subrow) {
+//				print_r($subrow);
+				$button = '<div class="text-center"> <i class="fa fa-pencil" style="color: grey"></i></div>';
+				$button_del = '<div class="text-center"> <b style="color: grey">X</b></div>';
+				$this->table->add_row(array($subrow['attributes']['name'], '', '', '', '', $button, $button_del));
 
 
+			}
+		}
 		echo $this->table->generate();
 		?>
 

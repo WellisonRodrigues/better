@@ -1,6 +1,8 @@
 <?php
 //print_r($this->session->userdata('user'));
+
 //print_r($table);
+
 ?>
 <?php
 /**
@@ -33,14 +35,14 @@
 		$button = '<div class="text-center"> <i class="fa fa-pencil" style="color: grey"></i></div>';
 		$button_del = '<div class="text-center"> <b style="color: grey">X</b></div>';
 		$this->perfecttable->setTableTemplate($id_table);
+
 		$this->table->set_heading(array('Nome', 'Email', 'CPF', 'Cidade - Estado', '', ''));
+		foreach ($table as $row) {
+			foreach ($row as $subrow) {
 
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', $button, $button_del));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', $button, $button_del));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', $button, $button_del));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', $button, $button_del));
-		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', $button, $button_del));
-
+				$this->table->add_row(array($subrow['attributes']['name'], $subrow['attributes']['email'], '', '', $button, $button_del));
+			}
+		}
 
 		echo $this->table->generate();
 		?>
