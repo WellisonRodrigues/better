@@ -1,14 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: wrodrigues
- * Date: 28/03/2018
- * Time: 13:11
- */
-?>
-<br>
-
-<?php
 //print_r($this->session->userdata('user'));
 //print_r($table);
 ?>
@@ -22,7 +12,7 @@
 
 ?>
 
-<div class="container" style="margin-top: 3%;">
+<div class="container" style="margin-top: 1%;">
 	<div class="row">
 		<div class="col-md-6">
 			<div class="text-left">

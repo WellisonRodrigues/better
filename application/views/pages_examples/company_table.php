@@ -7,7 +7,7 @@
  */
 ?>
 
-<div class="container" style="margin-top: 3%;">
+<div class="container" style="margin-top: 1%; margin-bottom: 2%">
 	<div class="row">
 		<div class="col-md-6">
 			<div class="text-left">
@@ -20,48 +20,48 @@
 			</div>
 		</div>
 	</div>
-<!--	<div class="col-md-12" style="margin-top: 1%;">-->
-		<div class="row" style="margin-top: 1%;">
+	<!--	<div class="col-md-12" style="margin-top: 1%;">-->
+	<div class="row" style="margin-top: 1%;">
 
-			<?php
-			$id_table = 'teste';
-			$this->perfecttable->setTableTemplate($id_table);
-			$this->table->set_heading(array('Empresas', 'Área', 'CEP', 'Cidade - Estado', 'Principal contato', '', ''));
+		<?php
+		$id_table = 'teste';
+		$this->perfecttable->setTableTemplate($id_table);
+		$this->table->set_heading(array('Empresas', 'Área', 'CEP', 'Cidade - Estado', 'Principal contato', '', ''));
 
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-			$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
-
-
-			echo $this->table->generate();
-			?>
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
+		$this->table->add_row(array('Fred', 'Blue', 'Small', 'Fred', 'Blue', 'Small', 'Small'));
 
 
-			<script>
-				$(document).ready(function () {
-					$('#teste').DataTable();
-				})
-			</script>
-		</div>
+		echo $this->table->generate();
+		?>
+
+
+		<script>
+			$(document).ready(function () {
+				$('#teste').DataTable();
+			})
+		</script>
 	</div>
+</div>
 <!--</div>-->

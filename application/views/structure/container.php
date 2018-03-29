@@ -13,7 +13,7 @@ if ($menu == true) {
 	<div class="col-md-12">
 		<div class="row">
 			<div class="col-md-2"
-				 style="background-color:#43425D;position: relative; z-index: 1000; padding: 20px; margin: 0;margin-top: 70px; height:100vh;overflow:hidden;">
+				 style="background-color:#43425D;position: relative; padding: 20px; margin: 0;height:100vh;overflow:hidden;">
 				<ul class="nav flex-column">
 					<li class="nav-item">
 						<a class="nav-link active" href="<?php echo base_url() . 'company' ?>"><i
@@ -35,7 +35,7 @@ if ($menu == true) {
 					</li>
 				</ul>
 			</div>
-			<div class="col-md-10" style="margin-top: 3%;">
+			<div class="col-md-10">
 				<article>
 					<?php $this->load->view($view) ?>
 				</article>

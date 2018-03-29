@@ -47,7 +47,7 @@
 
 	});
 </script>
-<div class="container" style="margin-top: 3%;">
+<div class="container" style="margin-top: 1%;">
 	<div class="row">
 		<div class="col-md-6">
 			<div class="text-left">
