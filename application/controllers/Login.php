@@ -48,7 +48,8 @@ class Login extends CI_Controller
 						'message' => 'Usuário logado com sucesso.'
 					];
 
-				$userAPI = array('auth_token' => $meta['auth_token'], 'auth_email' => $meta['auth_email']);
+				$userAPI = array('auth_token' => $meta['auth_token'], 'auth_email' => $meta['auth_email'],
+					'role' => $response['data']['attributes']['role']);
 				$this->session->set_flashdata('alert', $data['alert']);
 				$this->session->set_userdata('user', $userAPI);
 				redirect('Painel_admin');
