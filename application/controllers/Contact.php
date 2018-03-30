@@ -8,61 +8,86 @@
  */
 class Contact extends CI_Controller
 {
-	public function __construct()
-	{
-		parent::__construct();
-		if (!$this->session->userdata("user")) {
-			redirect('sair');
+    public function __construct()
+    {
+        parent::__construct();
+        if (!$this->session->userdata("user")) {
+            redirect('sair');
 
-		}
-		$this->load->library('table');
-		$this->load->library('Restfull');
-		$this->load->library('PerfectTable');
-	}
+        }
+        $this->load->library('table');
+        $this->load->library('Restfull');
+        $this->load->library('PerfectTable');
+    }
 
-	public function index()
-	{
-
-
-		$endpoint = 'api/v1/contacts';
-		$metodo = 'GET';
-		$params['data']['type'] = 'users';
-		$params['data'] ['attributes'] = array('email' => $this->input->post('email'), 'password' => $this->input->post('senha'));
-		$response = $this->restfull->cUrl($params, $endpoint, $metodo);
-		$data['table'] = $response;
-		$data['menu'] = true;  // Menu true significa que a pagina tera o menu principal, false deixa a pagina sem menu(menu = header + navbar)
-		$data['view'] = 'pages_examples/contact_table';
-		$this->load->view('structure/container', $data);
+    public function index()
+    {
 
 
-	}
+        $endpoint = 'api/v1/contacts';
+        $metodo = 'GET';
+        $params = '';
 
-	public function new_contact()
-	{
-		$data['menu'] = true;
-		$data['view'] = 'pages_examples/contact_form';
-		$this->load->view('structure/container', $data);
-	}
+        $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+        $data['table'] = $response;
+        $data['menu'] = true;  // Menu true significa que a pagina tera o menu principal, false deixa a pagina sem menu(menu = header + navbar)
+        $data['view'] = 'pages_examples/contact_table';
+        $this->load->view('structure/container', $data);
 
-	public function csv()
-	{
 
-		$endpoint = 'api/v1/contact-csv-imports';
-		$metodo = 'POST';
-		$params = '';
+    }
 
-		$response = $this->restfull->cUrl($params, $endpoint, $metodo);
+    public function new_contact($idcontact = null)
+    {
+        if ($this->input->post('salvar') == 'salvar' and $idcontact == null) {
+            $endpoint = 'api/v1/contacts';
+            $metodo = 'POST';
+            $params['data']['type'] = 'contacts';
+            $params['data'] ['attributes'] = array(
+                'email' => $this->input->post('email'),
+                'age' => $this->input->post('age'),
+                'first-name' => $this->input->post('first-name'),
+                'last-name' => $this->input->post('last-name'),
+                'childrens-num' => $this->input->post('childrens-num'),
+                'childrens-age' => $this->input->post('childrens-age'),
+                'marital-status' => $this->input->post('marital-status'),
+                'career' => $this->input->post('career'),
+                'hobby' => $this->input->post('hobby'),
+                'general-notes' => $this->input->post('general-notes'),
 
-	}
+            );
 
-	public function delete($id)
-	{
-		if ($id != null or $id != '') {
-			$endpoint = 'api/v1/contacts/' . $id;
-			$metodo = 'DELETE';
-			$params = '';
-			$response = $this->restfull->cUrl($params, $endpoint, $metodo);
-			redirect('Contact');
-		}
-	}
+//            print_r(json_encode($params));
+//            die;
+            $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+            $data['response'] = $response;
+        }
+        $data['menu'] = true;
+        $data['view'] = 'pages_examples/contact_form';
+        $this->load->view('structure/container', $data);
+    }
+
+    public
+    function csv()
+    {
+
+        $endpoint = 'api/v1/contact-csv-imports';
+        $metodo = 'POST';
+        $params = '';
+
+        $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+
+    }
+
+    public
+    function delete($id)
+    {
+        if ($id != null or $id != '') {
+            $endpoint = 'api/v1/contacts/' . $id;
+            $metodo = 'DELETE';
+            $params = '';
+            $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+            redirect('Contact');
+        }
+    }
 }
