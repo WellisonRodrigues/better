@@ -23,24 +23,27 @@
 		</div>
 		<div class="col-md-6">
 			<div class="text-right">
-				<button type="button" class="btn btn-indigo"> Adicionar usuário</button>
+				<a href="<?php echo base_url() ?>Users/new_user">
+					<button type="button" class="btn btn-indigo"> Adicionar usuário</button>
+				</a>
 			</div>
 		</div>
 	</div>
 	<!--	<div class="col-md-12" style="margin-top: 1%;">-->
 	<div class="row" style="margin-top: 1%;">
-
 		<?php
 		$id_table = 'teste';
-		$button = '<div class="text-center"> <i class="fa fa-pencil" style="color: grey"></i></div>';
-		$button_del = '<div class="text-center"> <b style="color: grey">X</b></div>';
 		$this->perfecttable->setTableTemplate($id_table);
-
-		$this->table->set_heading(array('Nome', 'Email', 'CPF', 'Cidade - Estado', '', ''));
+		$this->table->set_heading(array('Nome', 'Email', 'N° Registro', 'Empresa', '', ''));
 		foreach ($table as $row) {
 			foreach ($row as $subrow) {
-
-				$this->table->add_row(array($subrow['attributes']['name'], $subrow['attributes']['email'], '', '', $button, $button_del));
+				$url_del = base_url() . 'Users/delete/' . $subrow['id'];
+				$button_del = '<div class="text-center"><a class="delete" href="' . $url_del . '">  <b style="color: grey" class="fas fa-times"></b></a></div>';
+				$button = '<div class="text-center"> <b style="color: grey"> <i class="fas fa-pencil-alt"></i></b></div>';
+				@$company = $subrow['relationships']['sub-company-holding']['data']['id'];
+				$this->table->add_row(array(@$subrow['attributes']['name'], @$subrow['attributes']['email'],
+					@$subrow['attributes']['register-number'], @$company,
+					$button, $button_del));
 			}
 		}
 
@@ -51,7 +54,16 @@
 		<script>
 			$(document).ready(function () {
 				$('#teste').DataTable();
-			})
+				$('.delete').bind('click', function () {
+					var comf = confirm('Deseja mesmo excluir?');
+					if (comf == true) {
+					} else {
+						event.preventDefault();
+					}
+				});
+
+			});
+
 		</script>
 	</div>
 </div>

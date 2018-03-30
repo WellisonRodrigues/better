@@ -23,7 +23,7 @@ class Restfull
 		$array_fields = json_encode($params);
 		$mail = $this->CI->session->userdata('user')['auth_email'];
 		$token = $this->CI->session->userdata('user')['auth_token'];
-		if ($metodo != 'GET') {
+		if ($metodo != 'GET' or $metodo != 'DELETE') {
 
 
 			curl_setopt_array($curl, array(

@@ -18,15 +18,21 @@ if ($menu == true) {
 					<?php if ($this->session->userdata("user")['role'] == null) { ?>
 						<li class="nav-item">
 							<a class="nav-link active" href="<?php echo base_url() . 'company' ?>"><i
-									class="fa fa-user"></i>
+									class="fas fa-chart-bar"></i>
 								Empresas</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link active" href="<?php echo base_url() . 'users' ?>"><i
-									class="fa fa-user"></i>
+									class="far fa-user"></i>
 								Usuários</a>
 						</li>
-					<?php }
+					<?php } ?>
+					<li class="nav-item">
+						<a class="nav-link active" href="<?php echo base_url() . 'Contact' ?>"><i
+								class="fas fa-users"></i>
+							Contatos</a>
+					</li>
+					<?php
 					if ($this->session->userdata("user")['role'] == 'list' or $this->session->userdata("user")['role'] == 'schedule') {
 						?>
 						<li class="nav-item">
@@ -36,7 +42,7 @@ if ($menu == true) {
 						</li>
 					<?php } ?>
 					<li class="nav-item">
-						<a class="nav-link" href="<?php echo base_url() . 'usuarios' ?>"><i class="fa fa-gear"></i>
+						<a class="nav-link" href="<?php echo base_url() . 'usuarios' ?>"><i class="fas fa-cogs"></i>
 							Configuração</a>
 					</li>
 				</ul>

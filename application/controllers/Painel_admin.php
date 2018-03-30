@@ -9,6 +9,7 @@
 require_once ('Users.php');
 class Painel_admin extends Users
 {
+
 	public function table()
 	{
 
