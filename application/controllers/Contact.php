@@ -62,6 +62,39 @@ class Contact extends CI_Controller
             $response = $this->restfull->cUrl($params, $endpoint, $metodo);
             $data['response'] = $response;
         }
+        if ($this->input->post('salvar') == null and $idcontact != '') {
+
+            $endpoint = 'api/v1/contacts/' . $idcontact;
+            $metodo = 'GET';
+            $params = '';
+            $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+//            print_r($response);
+            $data['response'] = $response;
+        }
+
+        if ($this->input->post('salvar') == 'salvar' and $idcontact != null) {
+            $endpoint = 'api/v1/contacts/' . $idcontact;
+            $metodo = 'PUT';
+            $params['data']['id'] = $idcontact;
+            $params['data']['type'] = 'contacts';
+            $params['data'] ['attributes'] = array(
+                'email' => $this->input->post('email'),
+                'age' => $this->input->post('age'),
+                'first-name' => $this->input->post('first-name'),
+                'last-name' => $this->input->post('last-name'),
+                'childrens-num' => $this->input->post('childrens-num'),
+                'childrens-age' => $this->input->post('childrens-age'),
+                'marital-status' => $this->input->post('marital-status'),
+                'career' => $this->input->post('career'),
+                'hobby' => $this->input->post('hobby'),
+                'general-notes' => $this->input->post('general-notes'),
+
+            );
+            $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+            $data['response'] = $response;
+//            print_r($response);
+//            die;
+        }
         $data['menu'] = true;
         $data['view'] = 'pages_examples/contact_form';
         $this->load->view('structure/container', $data);

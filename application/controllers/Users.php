@@ -65,7 +65,38 @@ class Users extends CI_Controller
             );
             $response = $this->restfull->cUrl($params, $endpoint, $metodo);
 //            print_r($response);
-            $data['respose'] = $response;
+            $data['response'] = $response;
+        }
+        if ($this->input->post('salvar') == null and $id != '') {
+
+            $endpoint = 'api/v1/users/' . $id;
+            $metodo = 'GET';
+            $params = '';
+            $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+//            print_r($response);
+            $data['response'] = $response;
+        }
+
+        if ($this->input->post('salvar') == 'salvar' and $id != null) {
+            $endpoint = 'api/v1/users/' . $id;
+            $metodo = 'PUT';
+            $params['data']['id'] = $id;
+            $params['data']['type'] = 'users';
+            $params['data'] ['attributes'] = array(
+                'name' => $this->input->post('name'),
+                'email' => $this->input->post('email'),
+                'register-number' => $this->input->post('register-number'),
+//                    'role' => $this->input->post('role'),
+//                    'password' => $this->input->post('password')
+            );
+                $params['data'] ['relationships']['sub-company-holding']['data'] = array(
+                    'type' => 'sub_company_holdings',
+                    'id' => $this->input->post('sub_company_holdings')
+                );
+            $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+
+            $data['response'] = $response;
+
         }
 
         $data['menu'] = true;  // Menu true significa que a pagina tera o menu principal, false deixa a pagina sem menu(menu = header + navbar)

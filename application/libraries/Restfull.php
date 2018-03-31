@@ -45,6 +45,30 @@ class Restfull
                     "x-user-token: $token"
                 ),
             ));
+        }
+        if ($metodo == 'PUT') {
+
+
+            curl_setopt_array($curl, array(
+                CURLOPT_URL => "$base_url/$endpoint",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_SSL_VERIFYPEER => 0,
+                CURLOPT_SSL_VERIFYHOST => 0,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "$metodo",
+                CURLOPT_POSTFIELDS => "$array_fields",
+                CURLOPT_HTTPHEADER => array(
+//                    "accept: ",
+                    "cache-control: no-cache",
+                    "content-type: application/vnd.api+json",
+                    "postman-token: 373d1dea-902d-9447-a9af-1bc95e55279d",
+                    "x-user-email: $mail",
+                    "x-user-token: $token"
+                ),
+            ));
         } else {
             curl_setopt_array($curl, array(
                 CURLOPT_URL => "$base_url/$endpoint",
@@ -57,6 +81,7 @@ class Restfull
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => $metodo,
                 CURLOPT_HTTPHEADER => array(
+                    "accept: application/vnd.api+json",
                     "cache-control: no-cache",
                     "postman-token: fc61ac53-3a52-8580-ac4f-cbe4c33e813a",
                     "x-user-email: $mail",

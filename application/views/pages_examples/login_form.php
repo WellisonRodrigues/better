@@ -5,6 +5,7 @@
  * Date: 03/03/2018
  * Time: 23:49
  */
+
 ?>
 <style>
     .new {
@@ -19,9 +20,11 @@
     <!--    <div class="col-md-12">-->
     <div class="row">
         <div class="col-md-4">
-            <img src="<?php echo base_url() ?>img/foto_login.png" width="500px" height="708px" style="margin-left: -15px">
+            <img src="<?php echo base_url() ?>img/foto_login.png" width="500px" height="708px"
+                 style="margin-left: -15px">
         </div>
         <div class="col-md-8">
+
             <div class="row justify-content-md-center" style="margin-top: 15%">
                 <!--            <div class="card">-->
                 <!--			<div class="col-12">-->
@@ -30,6 +33,11 @@
                 echo form_open('Login/sign_in', ['role' => 'form']);
                 ?>
                 <br>
+                <?php
+                if (isset($response)) {
+                    echo '<div class="alert alert-danger" role="alert"> Usuário ou senha incorretos! </div>';
+                }
+                ?>
                 <p class="h4 text-center mb-4"><strong>LOGIN</strong></p>
                 <div class="text-center">Bem vindo de volta! Faça login para ver sua conta.</div>
                 <!-- Default input email -->

@@ -56,7 +56,7 @@ if ($menu == true) {
                         </li>
                     <?php } ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url() . 'usuarios' ?>"><i class="fas fa-cogs"></i>
+                        <a class="nav-link" href="<?php echo base_url() . 'Users/new_user/'.$this->session->userdata("user")['id'] ?>"><i class="fas fa-cogs"></i>
                             Configuração</a>
                     </li>
                     <li class="nav-item">
@@ -68,6 +68,20 @@ if ($menu == true) {
             <div class="col-md-10">
                 <article>
                     <div class="container">
+                        <div class="col-md-10 col-md-offset-1">
+                            <br>
+                            <!--        --><?php
+                            // p/ mesma pagina, sem redirect
+                            if (isset($alert)) {
+                                div_alerta($alert);
+                            }
+                            // p/ redirect
+                            $v_temp = $this->session->flashdata('alert');
+                            if (isset($v_temp)) {
+                                div_alerta($v_temp);
+                            }
+                            //        ?>
+                        </div>
                         <?php $this->load->view($view) ?>
                     </div>
                 </article>

@@ -37,16 +37,20 @@ class Calendar extends CI_Controller
         $params = '';
         $response = $this->restfull->cUrl($params, $endpoint, $metodo);
         $table = $response;
-        foreach ($table as $data) {
-            foreach ($data as $row) {
-                $new[] = array('title' => $row['attributes']['action'],
-                    'start' => $row['attributes']['start'],
-                    'end' => $row['attributes']['finish']
+        if (isset($table)) {
+            foreach ($table as $data) {
+                foreach ($data as $row) {
+                    $new[] = array('title' => $row['attributes']['action'],
+                        'start' => $row['attributes']['start'],
+                        'end' => $row['attributes']['finish']
 
-                );
+                    );
+                }
+
             }
-
+            print_r(json_encode($new));
+        } else{
+            print_r(json_encode(null));
         }
-        print_r(json_encode($new));
     }
 }

@@ -7,32 +7,34 @@
  */
 ?>
 <style>
-	i, a {
-		color: white;
-	}
+    i, a {
+        color: white;
+    }
 
-	li > a:hover {
-		background-color: #eee;
-		opacity: 0.09;
-	}
+    li > a:hover {
+        background-color: #eee;
+        opacity: 0.09;
+    }
 
-	.menus {
-		/*position: fixed;*/
-		width: 100%;
-		top: 0;
-		/*z-index: 1000*/
-	}
+    .menus {
+        /*position: fixed;*/
+        width: 100%;
+        top: 0;
+        /*z-index: 1000*/
+    }
 
 </style>
 
 <body style="background-color: #F0F0F7 ">
 <!--<div class="menus">-->
 <header>
-	<nav class="nav menus" style="background-color: white">
-		<div class="col-2" style="background-color:#3C3B53; padding: 20px; margin: 0">
-			<div class="text-center"><strong style="color: white; margin-left: 0"> BETTER PLANNING</strong></div>
-		</div>
-	</nav>
+    <nav class="nav menus" style="background-color: white">
+        <div class="col-2" style="background-color:#3C3B53; padding: 20px; margin: 0">
+            <div class="text-center"><strong style="color: white; margin-left: 0"> BETTER PLANNING</strong></div>
+        </div>
+        <div class="col-8"></div>
+        <div class="col-2"><br><?php echo @$this->session->userdata('user')['name']; ?></div>
+    </nav>
 </header>
 
 <!--</div>-->

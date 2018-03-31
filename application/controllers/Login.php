@@ -32,25 +32,16 @@ class Login extends CI_Controller
             $params['data'] ['attributes'] = array('email' => $this->input->post('email'), 'password' => $this->input->post('senha'));
             $response = $this->restfull->login($params, $endpoint, $metodo);
 //			$ob = json_decode($response['response']);
-            $meta = $response['data']['meta'];
-            if (isset($response["response"]->errors[0])) {
-                $data['alert'] =
-                    [
-                        'type' => 'erro',
-                        'message' => 'Usuário/Senha inválidos.'
-                    ];
-                $this->session->set_flashdata('alert', $data['alert']);
-                redirect('Login');
-            } else {
-                $data['alert'] =
-                    [
-                        'type' => 'sucesso',
-                        'message' => 'Usuário logado com sucesso.'
-                    ];
 
-                $userAPI = array('auth_token' => $meta['auth_token'], 'auth_email' => $meta['auth_email'],
+            if (isset($response['errors'])) {
+                $data['menu'] = false;  // Menu true significa que a pagina tera o menu principal, false deixa a pagina sem menu(menu = header + navbar)
+                $data['view'] = 'pages_examples/login_form';
+                $data['response'] = $response;
+                $this->load->view('structure/container', $data);
+            } else {
+                $meta = $response['data']['meta'];
+                $userAPI = array('id' => $response['data']['id'], 'name' => $response['data']['attributes']['name'], 'auth_token' => $meta['auth_token'], 'auth_email' => $meta['auth_email'],
                     'role' => $response['data']['attributes']['role']);
-                $this->session->set_flashdata('alert', $data['alert']);
                 $this->session->set_userdata('user', $userAPI);
                 redirect('Painel_admin');
             }
