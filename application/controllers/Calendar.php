@@ -37,7 +37,8 @@ class Calendar extends CI_Controller
         $params = '';
         $response = $this->restfull->cUrl($params, $endpoint, $metodo);
         $table = $response;
-        if (isset($table)) {
+//        print_r($table);
+        if ($table['data'] != null) {
             foreach ($table as $data) {
                 foreach ($data as $row) {
                     $new[] = array('title' => $row['attributes']['action'],
@@ -49,8 +50,9 @@ class Calendar extends CI_Controller
 
             }
             print_r(json_encode($new));
-        } else{
-            print_r(json_encode(null));
+        } else {
+            $new = array();
+            print_r(json_encode($new));
         }
     }
 }

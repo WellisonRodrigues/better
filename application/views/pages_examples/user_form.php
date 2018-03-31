@@ -6,17 +6,17 @@
  * Time: 17:34
  */
 //if (isset($response)) {
-//    print_r($response['data']);
+//    print_r($this->session->userdata("user"));
 //}
-if (isset($response['data']['id'])) {
-    if ($response['data']['id'] == $this->session->userdata("user")['id']) {
+//if (isset($response['data']['id'])) {
+    if (isset($response['data']['id']) == $this->session->userdata("user")['id']) {
         $title = 'Configurações';
         $false = false;
     } else {
         $title = 'Cadastro de Usuários';
         $false = true;
     }
-}
+//}
 ?>
 <div class="container" style="margin-top: 1%;">
     <div class="row">
