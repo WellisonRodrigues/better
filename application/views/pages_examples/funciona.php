@@ -20,7 +20,7 @@
         margin: 0 auto;
         padding: 0 auto;
         background-size: cover;
-        height: 800px;
+        height: 900px;
         background-image: url("<?php echo base_url()?>img/03_como_funciona_2.png")
     }
 </style>
