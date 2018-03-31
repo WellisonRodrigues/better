@@ -23,7 +23,7 @@ class PerfectTable
     {
         $this->CI->load->library('table');
         $template = array(
-            'table_open' => ' <table id="' . $id_table . '" class="table table-striped table-bordered table-hover" >',
+            'table_open' => ' <table id="' . $id_table . '" class="table table-sm table-striped table-bordered table-hover" >',
 
             'thead_open' => '<thead class="blue-grey lighten-4">',
             'thead_close' => '</thead>',

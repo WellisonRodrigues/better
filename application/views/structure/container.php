@@ -13,7 +13,7 @@ if ($menu == true) {
     <div class="col-md-12">
         <div class="row">
             <div class="col-md-2"
-                 style="background-color:#43425D;position: relative; padding: 20px; margin: 0;height:100vh;overflow:hidden;">
+                 style="background-color:#43425D;position: relative; padding: 20px; margin: 0;height:91vh;overflow:hidden;">
                 <ul class="nav flex-column">
                     <?php if ($this->session->userdata("user")['role'] == null) { ?>
                         <li class="nav-item">
@@ -70,7 +70,6 @@ if ($menu == true) {
                     <div class="container">
                         <?php $this->load->view($view) ?>
                     </div>
-                    <br>
                 </article>
             </div>
 

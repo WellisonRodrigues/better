@@ -29,7 +29,7 @@
 <!--<div class="menus">-->
 <header>
 	<nav class="nav menus" style="background-color: white">
-		<div class="col-2" style="background-color:#3C3B53; padding: 25px; margin: 0">
+		<div class="col-2" style="background-color:#3C3B53; padding: 20px; margin: 0">
 			<div class="text-center"><strong style="color: white; margin-left: 0"> BETTER PLANNING</strong></div>
 		</div>
 	</nav>
