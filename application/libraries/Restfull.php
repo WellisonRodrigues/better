@@ -46,7 +46,7 @@ class Restfull
                 ),
             ));
         }
-        if ($metodo == 'PUT') {
+        if ($metodo == 'PUT' or $metodo == 'POST') {
 
 
             curl_setopt_array($curl, array(

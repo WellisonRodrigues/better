@@ -10,10 +10,10 @@ if ($menu == true) {
     $this->load->view('structure/header');
 
     ?>
-    <div class="col-md-12">
-        <div class="row">
+    <div class="col-md-12" style="height: 100%">
+        <div class="row" style="height: auto; min-height: 100%">
             <div class="col-md-2"
-                 style="background-color:#43425D;position: relative; padding: 20px; margin: 0;height:91vh;overflow:hidden;">
+                 style="background-color:#43425D; padding: 20px; margin: 0; height:auto;">
                 <ul class="nav flex-column">
                     <?php if ($this->session->userdata("user")['role'] == null) { ?>
                         <li class="nav-item">
@@ -56,7 +56,9 @@ if ($menu == true) {
                         </li>
                     <?php } ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url() . 'Users/new_user/'.$this->session->userdata("user")['id'] ?>"><i class="fas fa-cogs"></i>
+                        <a class="nav-link"
+                           href="<?php echo base_url() . 'Users/new_user/' . $this->session->userdata("user")['id'] ?>"><i
+                                    class="fas fa-cogs"></i>
                             Configuração</a>
                     </li>
                     <li class="nav-item">
@@ -85,6 +87,7 @@ if ($menu == true) {
                         <?php $this->load->view($view) ?>
                     </div>
                 </article>
+                <br>
             </div>
 
         </div>

@@ -49,7 +49,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>CSV</label>
-                        <input id="imageinput" type="file" accept="file_extension|.csv"
+                        <input id="imageinput" type="file" accept=".csv"
                                onchange="readURL(this);"/>
                     </div>
                     <input type="hidden" name="new_image" id="new_image" value="">
@@ -60,6 +60,9 @@
                            value="Salvar">
                 </div>
             </div>
+            <?php
+            echo form_close();
+            ?>
             <!-- /.modal-content -->
         </div>
     </div>

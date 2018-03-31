@@ -23,6 +23,10 @@
         /*z-index: 1000*/
     }
 
+    html, body {
+        /*height: auto;*/
+        height: 100%;
+    }
 </style>
 
 <body style="background-color: #F0F0F7 ">

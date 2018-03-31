@@ -106,9 +106,12 @@ class Contact extends CI_Controller
 
         $endpoint = 'api/v1/contact-csv-imports';
         $metodo = 'POST';
-        $params = '';
-
+        $params['data']['type'] = 'contact_csv_imports';
+        $params['data'] ['attributes'] = array(
+            'file-data-uri' => $this->input->post('new_image'),
+        );
         $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+        redirect('Contact');
 
     }
 
