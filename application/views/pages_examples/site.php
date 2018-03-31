@@ -22,9 +22,9 @@
 <!--    <div class="col-md-12">-->
 
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004D92">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <ul class="nav navbar-nav">
+<!--            <div class="col-md-3"></div>-->
+            <div class="mx-auto">
+                <ul class="nav navbar-nav" style="margin-left: 0">
 
                     <li class="nav-item">
                         <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site' ?>"><b>INÍCIO</b></a></h2>

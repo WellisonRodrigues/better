@@ -16,6 +16,7 @@
         height: 800px;
         background-image: url("<?php echo base_url()?>img/03_como_funciona_1.png")
     }
+
     .full_img {
         margin: 0 auto;
         padding: 0 auto;
@@ -30,29 +31,31 @@
     <!--    <div class="col-md-12">-->
 
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004D92">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <ul class="nav navbar-nav">
+        <div class="mx-auto">
+            <ul class="nav navbar-nav" style="margin-left: 0">
 
                 <li class="nav-item">
                     <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site' ?>"><b>INÍCIO</b></a></h2>
                 </li>
                 <hr class="vl">
                 <li class="nav-item">
-                    <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site/sobre' ?>"><b>SOBRE</b></a></h2>
+                    <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site/sobre' ?>"><b>SOBRE</b></a>
+                    </h2>
                 </li>
                 <hr class="vl">
                 <li class="nav-item">
-                    <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site/funciona' ?>"><b>COMO FUNCIONA</b></a></h2>
+                    <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site/funciona' ?>"><b>COMO
+                                FUNCIONA</b></a></h2>
                 </li>
                 <hr class="vl">
                 <li class="nav-item">
-                    <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site/baixar' ?>"><b>BAIXE O APP</b></a></h2>
+                    <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site/baixar' ?>"><b>BAIXE O APP</b></a>
+                    </h2>
                 </li>
-<!--                <hr class="vl">-->
-<!--                <li class="nav-item">-->
-<!--                    <h2><a class="navbar-brand" href="#"><b>CADASTRE-SE</b></a></h2>-->
-<!--                </li>-->
+                <!--                <hr class="vl">-->
+                <!--                <li class="nav-item">-->
+                <!--                    <h2><a class="navbar-brand" href="#"><b>CADASTRE-SE</b></a></h2>-->
+                <!--                </li>-->
                 <hr class="vl">
                 <li class="nav-item">
                     <h2><a class="navbar-brand" href="<?php echo base_url() . 'Login' ?>"><b>LOGIN</b></a></h2>
