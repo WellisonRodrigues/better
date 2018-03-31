@@ -42,7 +42,7 @@ if ($menu == true) {
                         </li>
                         <?php
                     }
-                    if ($this->session->userdata("user")['role'] == 'schedule') {
+                    if ($this->session->userdata("user")['role'] == 'schedule' or $this->session->userdata("user")['role'] == 'list_schedule') {
                         ?>
                         <li class="nav-item">
                             <a class="nav-link active" href="<?php echo base_url() . 'users' ?>"><i

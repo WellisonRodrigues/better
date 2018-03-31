@@ -1,15 +1,6 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: wrodrigues
- * Date: 28/03/2018
- * Time: 14:44
- */
-?>
-
-<?php
-/**
- * Created by PhpStorm.
  * User: Wellison
  * Date: 01/03/2018
  * Time: 23:13
@@ -21,47 +12,54 @@
 <script src='<?php echo base_url() ?>CSSs/fullcalendar/fullcalendar.js'></script>
 <script src='<?php echo base_url() ?>CSSs/fullcalendar/locale/pt-br.js'></script>
 <script>
-	$(function () {
+//
+//    $.get("<?php //echo base_url('Calendar/get_calendar')?>//",
+//        function (resultado) {
+//            // alert(resultado)
+//        });
 
-		// page is now ready, initialize the calendar...
+    $(function () {
 
-		$('#calendar').fullCalendar({
-			// put your options and callbacks here
-			header: {
-				locale: 'pt-br',
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,agendaWeek,agendaDay,agenda'
+        // alert('ok')
+        // page is now ready, initialize the calendar...
+        $.ajax({
+            url: "<?php echo base_url('Calendar/get_calendar')?>",
+            type: 'POST',
+            data: 'type=fetch',
+            async: false,
+            success: function (response) {
+                json_events = response;
+            }
+        });
 
-			},
-			events: [
-				{
-					title: 'My Event',
-					start: '2018-03-01',
-					description: 'This is a cool event'
-				}
-				// more events here
-			]
+        $('#calendar').fullCalendar({
+            // put your options and callbacks here
+            header: {
+                locale: 'pt-br',
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay,agenda'
 
-		})
+            },
+            events: JSON.parse(json_events)
 
-	});
+        })
+
+    });
+
 </script>
 <div class="container" style="margin-top: 1%;">
-	<div class="row">
-		<div class="col-md-6">
-			<div class="text-left">
-				<h3><b>Empresas Cadastradas</b></h3>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="text-right">
-				<button type="button" class="btn btn-indigo"> Cadastrar Empresa</button>
-			</div>
-		</div>
-	</div>
-	<!--	<div class="col-md-12" style="margin-top: 1%;">-->
-	<div class="row" style="margin-top: 1%; margin-bottom: 20px">
-		<div id='calendar' class="col-md-12"></div>
-	</div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="text-left">
+                <h3><b>Calendario</b></h3>
+            </div>
+        </div>
+    </div>
+    <!--	<div class="col-md-12" style="margin-top: 1%;">-->
+    <div class="row" style="margin-top: 1%; margin-bottom: 20px">
+        <div class="container">
+            <div id='calendar' class="col-md-12"></div>
+        </div>
+    </div>
 </div>
