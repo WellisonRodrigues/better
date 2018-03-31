@@ -9,11 +9,19 @@
 <link href="<?php echo base_url() ?>CSSs/navcss.css" rel="stylesheet">
 
 <style>
-    body {
+    .full_img1 {
         margin: 0 auto;
         padding: 0 auto;
         background-size: cover;
-        background-image: url("<?php echo base_url()?>img/01_inicio.png")
+        height: 800px;
+        background-image: url("<?php echo base_url()?>img/02_sobre_1.png")
+    }
+    .full_img {
+        margin: 0 auto;
+        padding: 0 auto;
+        background-size: cover;
+        height: 800px;
+        background-image: url("<?php echo base_url()?>img/02_sobre_2.png")
     }
 </style>
 <body>
@@ -54,12 +62,19 @@
         </nav>
 <!--    </div>-->
 </header>
-<div class="container-fluid">
-    <div style="margin-top: 35%;margin-left: 75%; margin-right: 0">
-        <button type="button" class="btn btn-danger btn-lg">Entre para o Better
-            Planning
-        </button>
-    </div>
+<div class="full_img1">
+<!--    <div style="margin-top: 35%;margin-left: 75%; margin-right: 0">-->
+<!--        <button type="button" class="btn btn-danger btn-lg">Entre para o Better-->
+<!--            Planning-->
+<!--        </button>-->
+<!--    </div>-->
+</div>
+<div class="full_img">
+<!--    <div style="margin-top: 35%;margin-left: 75%; margin-right: 0">-->
+<!--        <button type="button" class="btn btn-danger btn-lg">Entre para o Better-->
+<!--            Planning-->
+<!--        </button>-->
+<!--    </div>-->
 </div>
 </body>
 
