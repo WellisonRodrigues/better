@@ -8,36 +8,42 @@
 
 ?>
 <style>
+
+    html, body, article {
+        height: 100%;
+        width: 100%;
+        /*background-color: #004D92*/
+
+    }
+
+    .container-new, .row {
+        height: 100%;
+        width: 100%;
+    }
+
     .new {
         padding-left: 50px;
         padding-right: 50px
     }
 
-    html, body, article {
-        height: 100%;
 
-    }
-
-    .container-fluid, .row {
-        height: 100%;
-    }
 </style>
 <!--<br>-->
 <!---->
 <body>
-<div class="container-fluid">
+<div class="container-new">
     <!--    <div class="col-md-12">-->
     <div class="row">
         <div class="col-md-4 col-sm-8">
             <img src="<?php echo base_url() ?>img/foto_login.png" width="100%" height="100%"
                  style="margin-left: -15px">
         </div>
-        <div class="col-md-8 col-sm-4">
+        <!--        <div class="col-md-8 col-sm-4">-->
 
-            <div class="row justify-content-md-center" style="margin-top: 15%">
-                <!--            <div class="card">-->
-                <!--			<div class="col-12">-->
-                <!-- Default form register -->
+        <div class="justify-content-md-center mx-auto" style="margin-top: 10%">
+            <!--            <div class="card">-->
+            <!--			<div class="col-12">-->
+            <div class="col-md-12 mx-auto">        <!-- Default form register -->
                 <?php
                 echo form_open('Login/sign_in', ['role' => 'form']);
                 ?>
@@ -101,3 +107,4 @@
         </div>
     </div>
 </div>
+<!--</div>-->
