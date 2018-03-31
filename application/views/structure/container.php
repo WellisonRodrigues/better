@@ -67,9 +67,13 @@ if ($menu == true) {
             </div>
             <div class="col-md-10">
                 <article>
-                    <?php $this->load->view($view) ?>
+                    <div class="container">
+                        <?php $this->load->view($view) ?>
+                    </div>
+                    <br>
                 </article>
             </div>
+
         </div>
     </div>
 

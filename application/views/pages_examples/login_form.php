@@ -19,7 +19,7 @@
     <!--    <div class="col-md-12">-->
     <div class="row">
         <div class="col-md-4">
-            <img src="<?php echo base_url() ?>img/foto_login.png" width="500px" height="640px" style="margin-left: -15px">
+            <img src="<?php echo base_url() ?>img/foto_login.png" width="500px" height="708px" style="margin-left: -15px">
         </div>
         <div class="col-md-8">
             <div class="row justify-content-md-center" style="margin-top: 15%">
