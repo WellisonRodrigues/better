@@ -1,11 +1,4 @@
 
-.vl {
-    border-left: 1px solid white;
-    height: 20px;
-    margin-top: 10px;
-    margin-right: 20px;
-    margin-left: 10px;
-}
 
 h2 > a {
     position: relative;
@@ -40,4 +33,12 @@ h2 > a:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
+}
+
+.vl {
+    border-left: 2px solid white;
+    height: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 10px;
 }
