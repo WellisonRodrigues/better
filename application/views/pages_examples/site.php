@@ -9,11 +9,35 @@
 <link href="<?php echo base_url() ?>CSSs/navcss.css" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
 
 <style>
+    /*body {*/
+    /*    margin: 0 auto;*/
+    /*    padding: 0 auto;*/
+    /*    background-size: cover;*/
+    /*    background-image: url("*/
+    <?php //echo base_url()?> /*img/01_inicio.png")*/
+    /*}*/
+    html, body, article {
+        height: 100%;
+        width: 100%;
+        /*overflow-x: hidden ;*/
+        overflow-y: visible;
+        /*background-color: #004D92*/
+
+    }
+
     body {
-        margin: 0 auto;
-        padding: 0 auto;
+        background-image: url("<?php echo base_url()?>img/01_inicio.png");
         background-size: cover;
-        background-image: url("<?php echo base_url()?>img/01_inicio.png")
+    }
+
+    header {
+        width: 100%;
+    }
+
+    .row {
+        height: 100%;
+        width: 100%;
+        margin: 0;
     }
 </style>
 <body>
