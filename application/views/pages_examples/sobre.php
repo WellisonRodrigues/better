@@ -30,7 +30,7 @@
         width: 100%;
         /*overflow-x: hidden ;*/
         overflow-y: visible;
-        background-color: #004D92
+        /*background-color: #004D92*/
 
     }
 
