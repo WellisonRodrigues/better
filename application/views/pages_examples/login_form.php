@@ -12,6 +12,15 @@
         padding-left: 50px;
         padding-right: 50px
     }
+
+    html, body, article {
+        height: 100%;
+
+    }
+
+    .container-fluid, .row {
+        height: 100%;
+    }
 </style>
 <!--<br>-->
 <!---->
@@ -19,11 +28,11 @@
 <div class="container-fluid">
     <!--    <div class="col-md-12">-->
     <div class="row">
-        <div class="col-md-4">
-            <img src="<?php echo base_url() ?>img/foto_login.png" width="500px" height="708px"
+        <div class="col-md-4 col-sm-8">
+            <img src="<?php echo base_url() ?>img/foto_login.png" width="100%" height="100%"
                  style="margin-left: -15px">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-4">
 
             <div class="row justify-content-md-center" style="margin-top: 15%">
                 <!--            <div class="card">-->
@@ -68,14 +77,17 @@
                 <div class="mt-4">
                     <div class="row">
                         <div class="col-md-6">
+                            <a href="<?php echo base_url() ?>Home_site">
+                                <button class="btn new  btn-outline-primary" name="sign_in" type="button"> Voltar
+                                </button>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
                             <button class="btn new" style="background-color: #0e4377;" name="sign_in" type="submit">
                                 Entrar
                             </button>
                         </div>
-                        <div class="col-md-6">
-                            <button class="btn  btn-outline-primary" name="sign_in" type="submit"> Cadastrar
-                            </button>
-                        </div>
+
                     </div>
                     <!--				</div>-->
                 </div>
