@@ -24,6 +24,24 @@
         height: 900px;
         background-image: url("<?php echo base_url()?>img/03_como_funciona_2.png")
     }
+    html, body, article {
+        height: 100%;
+        width: 100%;
+        /*overflow-x: hidden ;*/
+        overflow-y: visible;
+        /*background-color: #004D92*/
+
+    }
+
+    header {
+        width: 100%;
+    }
+
+    .row {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
 </style>
 <body>
 
@@ -65,19 +83,15 @@
     </nav>
     <!--    </div>-->
 </header>
-<div class="full_img1">
-    <!--    <div style="margin-top: 35%;margin-left: 75%; margin-right: 0">-->
-    <!--        <button type="button" class="btn btn-danger btn-lg">Entre para o Better-->
-    <!--            Planning-->
-    <!--        </button>-->
-    <!--    </div>-->
-</div>
-<div class="full_img">
-    <!--    <div style="margin-top: 35%;margin-left: 75%; margin-right: 0">-->
-    <!--        <button type="button" class="btn btn-danger btn-lg">Entre para o Better-->
-    <!--            Planning-->
-    <!--        </button>-->
-    <!--    </div>-->
+<div class="new">
+    <div class="row">
+        <img src="<?php echo base_url() ?>img/03_como_funciona_1.png" width="100%" height="auto"
+        >
+    </div>
+    <div class="row">
+        <img src="<?php echo base_url() ?>img/03_como_funciona_2.png" width="100%" height="auto"
+             usemap="#shape" style="margin-left: -15px">
+    </div>
 </div>
 </body>
 
