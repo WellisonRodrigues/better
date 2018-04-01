@@ -22,6 +22,12 @@ class Calendar extends CI_Controller
 
     public function index()
     {
+        $endpoint = 'api/v1/users';
+        $metodo = 'GET';
+        $params = '';
+
+        $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+        $data['table'] = $response;
 
         $data['menu'] = true;  // Menu true significa que a pagina tera o menu principal, false deixa a pagina sem menu(menu = header + navbar)
         $data['view'] = 'pages_examples/calendar_table';
@@ -55,4 +61,52 @@ class Calendar extends CI_Controller
             print_r(json_encode($new));
         }
     }
+
+    public function new_calendar()
+    {
+
+        $endpoint = 'api/v1/appointments';
+        $metodo = 'POST';
+        $params['data']['type'] = 'appointments';
+        $params['data'] ['attributes'] = array(
+            'action' => $this->input->post('action'),
+            'status' => $this->input->post('status'),
+            'description' => $this->input->post('description'),
+            'address' => $this->input->post('address'),
+            'start' => $this->input->post('start'),
+
+        );
+        $params['data']['relationships']['contact']['data'] = array('type' => 'contacts', 'id' => $this->input->post('id'));
+
+        $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+        $data['response'] = $response;
+        if (isset($response['data'])) {
+            $data['mensagem'] = 'success';
+            $endpoint = 'api/v1/users';
+            $metodo = 'GET';
+            $params = '';
+
+            $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+            $data['table'] = $response;
+
+            $data['menu'] = true;  // Menu true significa que a pagina tera o menu principal, false deixa a pagina sem menu(menu = header + navbar)
+            $data['view'] = 'pages_examples/calendar_table';
+            $this->load->view('structure/container', $data);
+        } else {
+            $data['mensagem'] = 'error';
+            $endpoint = 'api/v1/users';
+            $metodo = 'GET';
+            $params = '';
+
+            $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+            $data['table'] = $response;
+
+            $data['menu'] = true;  // Menu true significa que a pagina tera o menu principal, false deixa a pagina sem menu(menu = header + navbar)
+            $data['view'] = 'pages_examples/calendar_table';
+            $this->load->view('structure/container', $data);
+        }
+
+    }
+
+
 }

@@ -37,6 +37,24 @@ class Contact extends CI_Controller
 
     }
 
+    public function contact_combobox()
+    {
+
+
+        $endpoint = 'api/v1/contacts';
+        $metodo = 'GET';
+        $params = '';
+
+        $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+        $data['table'] = $response;
+
+//        $data['menu'] = true;  // Menu true significa que a pagina tera o menu principal, false deixa a pagina sem menu(menu = header + navbar)
+//        $data['view'] = 'pages_examples/contact_table';
+//        $this->load->view('structure/container', $data);
+
+
+    }
+
     public function new_contact($idcontact = null)
     {
         if ($this->input->post('salvar') == 'salvar' and $idcontact == null) {
