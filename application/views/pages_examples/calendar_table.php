@@ -61,7 +61,7 @@
                     Até
                     <input type="datetime"
                            value=""
-                           id="finish" name="finish" class="form-control" required>
+                           id="finish" name="finish" class="form-control">
 
                 </div>
             </div>
@@ -138,9 +138,9 @@
     </div>
     <?php
     if (isset($mensagem)) {
-        if ($mensagem == 'error') {
-
-            echo "<div class='alert alert-danger' role='alert'>Erro ao criar a Agenda</div>";
+        if ($mensagem['error'] != null) {
+            $alert = $mensagem['error'];
+            echo "<div class='alert alert-danger' role='alert'>$alert</div>";
         } else {
             echo "<div class='alert alert-success' role='alert'>Agenda criada!</div>";
         }

@@ -81,7 +81,7 @@ class Calendar extends CI_Controller
         $response = $this->restfull->cUrl($params, $endpoint, $metodo);
         $data['response'] = $response;
         if (isset($response['data'])) {
-            $data['mensagem'] = 'success';
+            $data['mensagem'] = array('success'=> 'success');
             $endpoint = 'api/v1/users';
             $metodo = 'GET';
             $params = '';
@@ -93,7 +93,9 @@ class Calendar extends CI_Controller
             $data['view'] = 'pages_examples/calendar_table';
             $this->load->view('structure/container', $data);
         } else {
-            $data['mensagem'] = 'error';
+//            print_r($response);
+//            die;
+            $data['mensagem'] = array('error' => $response['errors'][0]['detail']);
             $endpoint = 'api/v1/users';
             $metodo = 'GET';
             $params = '';
