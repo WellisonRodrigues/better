@@ -54,20 +54,27 @@
                         or $this->session->userdata('user')['role'] == 'schedule'
                         or $this->session->userdata('user')['role'] == 'list_schedule'
                     ) {
-                        $this->table->set_heading(array('Nome', 'Email', 'N° Registro', 'Empresa', ''));
+                        $url_del = base_url() . 'Users/delete/' . $subrow['id'];
+                        $url_edit = base_url() . 'Users/new_user/' . $subrow['id'];
+                        $button_del = '<div class="text-center"><a class="delete" href="' . $url_del . '">  <b style="color: grey" class="fas fa-times"></b></a></div>';
+                        $button = '<div class="text-center"><a href="' . $url_edit . '"> <b style="color: grey"> <i class="fas fa-pencil-alt"></i></b></a></div>';
+                        @$company = $subrow['relationships']['sub-company-holding']['data']['id'];
+                        $this->table->add_row(array(@$subrow['attributes']['name'], @$subrow['attributes']['email'],
+                            @$subrow['attributes']['register-number'], @$company,
+                            $button));
 
                     } else {
-                        $this->table->set_heading(array('Nome', 'Email', 'N° Registro', 'Empresa', '', ''));
+                        $url_del = base_url() . 'Users/delete/' . $subrow['id'];
+                        $url_edit = base_url() . 'Users/new_user/' . $subrow['id'];
+                        $button_del = '<div class="text-center"><a class="delete" href="' . $url_del . '">  <b style="color: grey" class="fas fa-times"></b></a></div>';
+                        $button = '<div class="text-center"><a href="' . $url_edit . '"> <b style="color: grey"> <i class="fas fa-pencil-alt"></i></b></a></div>';
+                        @$company = $subrow['relationships']['sub-company-holding']['data']['id'];
+                        $this->table->add_row(array(@$subrow['attributes']['name'], @$subrow['attributes']['email'],
+                            @$subrow['attributes']['register-number'], @$company,
+                            $button, $button_del));
                     }
 
-                    $url_del = base_url() . 'Users/delete/' . $subrow['id'];
-                    $url_edit = base_url() . 'Users/new_user/' . $subrow['id'];
-                    $button_del = '<div class="text-center"><a class="delete" href="' . $url_del . '">  <b style="color: grey" class="fas fa-times"></b></a></div>';
-                    $button = '<div class="text-center"><a href="' . $url_edit . '"> <b style="color: grey"> <i class="fas fa-pencil-alt"></i></b></a></div>';
-                    @$company = $subrow['relationships']['sub-company-holding']['data']['id'];
-                    $this->table->add_row(array(@$subrow['attributes']['name'], @$subrow['attributes']['email'],
-                        @$subrow['attributes']['register-number'], @$company,
-                        $button, $button_del));
+
                 }
             }
         }
