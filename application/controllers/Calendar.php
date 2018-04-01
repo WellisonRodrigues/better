@@ -20,8 +20,11 @@ class Calendar extends CI_Controller
         $this->load->library('PerfectTable');
     }
 
-    public function index()
+    public function index($id = null)
     {
+        if ($id != null) {
+            $data['id'] = $id;
+        }
         $endpoint = 'api/v1/users';
         $metodo = 'GET';
         $params = '';
@@ -36,30 +39,60 @@ class Calendar extends CI_Controller
 
     }
 
-    public function get_calendar()
+    public function get_calendar($id = null)
     {
-        $endpoint = 'api/v1/appointments';
-        $metodo = 'GET';
-        $params = '';
-        $response = $this->restfull->cUrl($params, $endpoint, $metodo);
-        $table = $response;
 //        print_r($table);
-        if ($table['data'] != null) {
-            foreach ($table as $data) {
-                foreach ($data as $row) {
-                    $new[] = array('title' => $row['attributes']['action'],
-                        'start' => $row['attributes']['start'],
-                        'end' => $row['attributes']['finish']
 
-                    );
+        if ($id != null or $id != '') {
+            $endpoint = "api/v1/appointments/$id";
+            $metodo = 'GET';
+            $params = '';
+            $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+            $table = $response;
+//            print_r($response);
+//            die;
+            if ($table['data'] != null) {
+                foreach ($table as $data) {
+                    foreach ($data as $row) {
+                        $new[] = array('title' => $row['attributes']['action'],
+                            'start' => $row['attributes']['start'],
+                            'end' => $row['attributes']['finish']
+
+                        );
+                    }
+
                 }
-
+                print_r(json_encode($new));
+            } else {
+                $new = array();
+                print_r(json_encode($new));
             }
-            print_r(json_encode($new));
         } else {
-            $new = array();
-            print_r(json_encode($new));
+
+            $endpoint = 'api/v1/appointments';
+            $metodo = 'GET';
+            $params = '';
+            $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+            $table = $response;
+
+            if ($table['data'] != null) {
+                foreach ($table as $data) {
+                    foreach ($data as $row) {
+                        $new[] = array('title' => $row['attributes']['action'],
+                            'start' => $row['attributes']['start'],
+                            'end' => $row['attributes']['finish']
+
+                        );
+                    }
+
+                }
+                print_r(json_encode($new));
+            } else {
+                $new = array();
+                print_r(json_encode($new));
+            }
         }
+
     }
 
     public function new_calendar()
@@ -81,7 +114,7 @@ class Calendar extends CI_Controller
         $response = $this->restfull->cUrl($params, $endpoint, $metodo);
         $data['response'] = $response;
         if (isset($response['data'])) {
-            $data['mensagem'] = array('success'=> 'success');
+            $data['mensagem'] = array('success' => 'success');
             $endpoint = 'api/v1/users';
             $metodo = 'GET';
             $params = '';

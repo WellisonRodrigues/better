@@ -47,9 +47,9 @@
                     <select class="form-control" name="id" id="exampleFormControlSelect1">
                         <?php foreach ($table as $line) {
                             foreach ($line as $row) {
-                                $id = $row['id'];
+                                $id_user = $row['id'];
                                 $name = $row['attributes']['name'];
-                                echo "<option value='$id'>$name</option>";
+                                echo "<option value='$id_user'>$name</option>";
                             }
                         } ?>
 
@@ -86,16 +86,29 @@
 
         // alert('ok')
         // page is now ready, initialize the calendar...
-        $.ajax({
-            url: "<?php echo base_url('Calendar/get_calendar')?>",
-            type: 'POST',
-            data: 'type=fetch',
-            async: false,
-            success: function (response) {
-                json_events = response;
-            }
-        });
-
+        var id = '<?php echo @$id?>';
+        alert(id);
+        if (id ^ '') {
+            $.ajax({
+                url: "<?php echo base_url('Calendar/get_calendar')?>",
+                type: 'POST',
+                data: 'type=fetch',
+                async: false,
+                success: function (response) {
+                    json_events = response;
+                }
+            });
+        } else {
+            $.ajax({
+                url: "<?php echo base_url('Calendar/get_calendar/')?> " + id,
+                type: 'POST',
+                data: 'type=fetch',
+                async: false,
+                success: function (response) {
+                    json_events = response;
+                }
+            });
+        }
         $('#calendar').fullCalendar({
             // put your options and callbacks here
             selectable: true,
