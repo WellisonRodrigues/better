@@ -74,7 +74,16 @@
 
         $this->perfecttable->setTableTemplate($id_table);
 
-        $this->table->set_heading(array('Nome', 'Email', 'N° Registro', 'Empresa', '', '', ''));
+        if ($this->session->userdata('user')['role'] == 'list'
+            or $this->session->userdata('user')['role'] == 'schedule'
+            or $this->session->userdata('user')['role'] == 'list_schedule'
+        ) {
+            $this->table->set_heading(array('Nome', 'Email', 'N° Registro', 'Empresa', ''));
+
+        } else {
+            $this->table->set_heading(array('Nome', 'Email', 'N° Registro', 'Empresa', '', '', ''));
+        }
+
         foreach ($table as $row) {
             foreach ($row as $subrow) {
                 $url_del = base_url() . 'Contact/delete/' . $subrow['id'];
@@ -83,9 +92,22 @@
                 $button_del = '<div class="text-center"><a class="delete" href="' . $url_del . '">  <b style="color: grey" class="fas fa-times"></b></a></div>';
                 $button_detail = '<div class="text-center"><b style="color: grey" class="fas fa-eye"></b></div>';
                 @$company = $subrow['relationships']['sub-company-holding']['data']['id'];
-                $this->table->add_row(array(@$subrow['attributes']['first-name'], @$subrow['attributes']['email'],
-                    @$subrow['attributes']['register-number'], @$company,
-                    $button_detail, $button, $button_del));
+
+                if ($this->session->userdata('user')['role'] == 'list'
+                    or $this->session->userdata('user')['role'] == 'schedule'
+                    or $this->session->userdata('user')['role'] == 'list_schedule'
+                ) {
+                    $this->table->add_row(array(@$subrow['attributes']['first-name'], @$subrow['attributes']['email'],
+                        @$subrow['attributes']['register-number'], @$company,
+                        $button_detail));
+
+                } else {
+                    $this->table->add_row(array(@$subrow['attributes']['first-name'], @$subrow['attributes']['email'],
+                        @$subrow['attributes']['register-number'], @$company,
+                        $button_detail, $button, $button_del));
+                }
+
+
             }
         }
 

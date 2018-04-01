@@ -102,8 +102,8 @@
             header: {
 
                 locale: 'pt-br',
-                height: '600',
-                with: '700',
+                height: '500',
+                // with: '700',
                 left: 'today, prev,next ',
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay,agenda'
@@ -128,24 +128,26 @@
     });
 
 </script>
-<div class="container-fluid" style="margin-top: 1%;">
-    <div class="row">
+
+<div class="row">
+    <div class="container-fluid" style="margin-top: 1%;">
         <div class="col-md-6">
             <div class="text-left">
                 <h3><b>Calendario</b></h3>
             </div>
         </div>
-    </div>
-    <?php
-    if (isset($mensagem)) {
-        if ($mensagem['error'] != null) {
-            $alert = $mensagem['error'];
-            echo "<div class='alert alert-danger' role='alert'>$alert</div>";
-        } else {
-            echo "<div class='alert alert-success' role='alert'>Agenda criada!</div>";
+        <?php
+        if (isset($mensagem)) {
+            if ($mensagem['error'] != null) {
+                $alert = $mensagem['error'];
+                echo "<div class='alert alert-danger' role='alert'>$alert</div>";
+            } else {
+                echo "<div class='alert alert-success' role='alert'>Agenda criada!</div>";
+            }
         }
-    }
-    ?>
+        ?>
+    </div>
+
     <!--	<div class="col-md-12" style="margin-top: 1%;">-->
     <div class="row" style="margin-top: 1%; margin-bottom: 20px">
         <div class="container-fluid">

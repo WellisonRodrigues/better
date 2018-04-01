@@ -34,10 +34,32 @@
         <?php
         $id_table = 'teste';
         $this->perfecttable->setTableTemplate($id_table);
-        $this->table->set_heading(array('Nome', 'Email', 'N° Registro', 'Empresa', '', ''));
+
+        if ($this->session->userdata('user')['role'] == 'list'
+            or $this->session->userdata('user')['role'] == 'schedule'
+            or $this->session->userdata('user')['role'] == 'list_schedule'
+        ) {
+            $this->table->set_heading(array('Nome', 'Email', 'N° Registro', 'Empresa', ''));
+
+        } else {
+            $this->table->set_heading(array('Nome', 'Email', 'N° Registro', 'Empresa', '', ''));
+        }
+
+
         if (isset($table)) {
             foreach ($table as $row) {
                 foreach ($row as $subrow) {
+
+                    if ($this->session->userdata('user')['role'] == 'list'
+                        or $this->session->userdata('user')['role'] == 'schedule'
+                        or $this->session->userdata('user')['role'] == 'list_schedule'
+                    ) {
+                        $this->table->set_heading(array('Nome', 'Email', 'N° Registro', 'Empresa', ''));
+
+                    } else {
+                        $this->table->set_heading(array('Nome', 'Email', 'N° Registro', 'Empresa', '', ''));
+                    }
+
                     $url_del = base_url() . 'Users/delete/' . $subrow['id'];
                     $url_edit = base_url() . 'Users/new_user/' . $subrow['id'];
                     $button_del = '<div class="text-center"><a class="delete" href="' . $url_del . '">  <b style="color: grey" class="fas fa-times"></b></a></div>';
