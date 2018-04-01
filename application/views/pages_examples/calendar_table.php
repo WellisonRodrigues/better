@@ -137,7 +137,7 @@
         </div>
     </div>
     <?php
-    if ($mensagem) {
+    if (isset($mensagem)) {
         if ($mensagem == 'error') {
 
             echo "<div class='alert alert-danger' role='alert'>Erro ao criar a Agenda</div>";
