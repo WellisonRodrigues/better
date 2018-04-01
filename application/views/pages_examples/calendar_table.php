@@ -138,7 +138,7 @@
         </div>
         <?php
         if (isset($mensagem)) {
-            if ($mensagem['error'] != null) {
+            if (isset($mensagem['error'])) {
                 $alert = $mensagem['error'];
                 echo "<div class='alert alert-danger' role='alert'>$alert</div>";
             } else {
