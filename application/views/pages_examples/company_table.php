@@ -31,14 +31,14 @@
 		<?php
 		$id_table = 'teste';
 		$this->perfecttable->setTableTemplate($id_table);
-		$this->table->set_heading(array('Empresa', '', ''));
+		$this->table->set_heading(array('Empresa', ''));
 		foreach ($company as $row) {
 			foreach ($row as $subrow) {
 //				print_r($subrow);
 				$url_del = base_url() . 'Company/delete/' . $subrow['id'];
 				$button = '<div class="text-center"> <b style="color: grey"> <i class="fas fa-pencil-alt"></i></b></div>';
 				$button_del = '<div class="text-center"><a class="delete" href="' . $url_del . '">  <b style="color: grey" class="fas fa-times"></b></a></div>';
-				$this->table->add_row(array($subrow['attributes']['name'], $button, $button_del));
+				$this->table->add_row(array($subrow['attributes']['name'], $button_del));
 
 
 			}

@@ -5,9 +5,9 @@
  * Date: 29/03/2018
  * Time: 17:34
  */
-if (isset($response)) {
-    print_r($response);
-}
+//if (isset($response)) {
+//    print_r($response);
+//}
 ?>
 <div class="container" style="margin-top: 1%;">
     <div class="col-md-6">
@@ -16,6 +16,13 @@ if (isset($response)) {
             <h3><b>Cadastro de Empresa</b></h3>
         </div>
 
+    </div>
+    <div class="col-md-12">
+        <?php if (isset($mensagem['data'])) {
+
+            echo '<div class=\'alert alert-success\' role=\'alert\'>Salvo com sucesso!</div>';
+
+        } ?>
     </div>
 
 

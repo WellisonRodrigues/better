@@ -8,15 +8,20 @@
 //if (isset($response)) {
 //    print_r($this->session->userdata("user"));
 //}
-//if (isset($response['data']['id'])) {
-    if (isset($response['data']['id']) == $this->session->userdata("user")['id']) {
+//print_r($mensagem);
+
+if (isset($response['data']['id'])) {
+    if ($response['data']['id'] == $this->session->userdata("user")['id']) {
         $title = 'Configurações';
         $false = false;
     } else {
         $title = 'Cadastro de Usuários';
         $false = true;
     }
-//}
+} else {
+    $title = 'Cadastro de Usuários';
+    $false = true;
+}
 ?>
 <div class="container" style="margin-top: 1%;">
     <div class="row">
@@ -26,6 +31,13 @@
                 <h3><b><?php echo $title ?></b></h3>
             </div>
 
+        </div>
+        <div class="col-md-12">
+            <?php if (isset($mensagem['data'])) {
+
+                echo '<div class=\'alert alert-success\' role=\'alert\'>Salvo com sucesso!</div>';
+
+            } ?>
         </div>
     </div>
     <br>

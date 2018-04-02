@@ -66,6 +66,7 @@ class Users extends CI_Controller
             $response = $this->restfull->cUrl($params, $endpoint, $metodo);
 //            print_r($response);
             $data['response'] = $response;
+            $data['mensagem'] = $response;
         }
         if ($this->input->post('salvar') == null and $id != '') {
 
@@ -75,6 +76,7 @@ class Users extends CI_Controller
             $response = $this->restfull->cUrl($params, $endpoint, $metodo);
 //            print_r($response);
             $data['response'] = $response;
+
         }
 
         if ($this->input->post('salvar') == 'salvar' and $id != null) {
@@ -96,6 +98,7 @@ class Users extends CI_Controller
             $response = $this->restfull->cUrl($params, $endpoint, $metodo);
 
             $data['response'] = $response;
+            $data['mensagem'] = $response;
 
         }
 

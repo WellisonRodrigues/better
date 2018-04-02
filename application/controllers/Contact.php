@@ -79,6 +79,7 @@ class Contact extends CI_Controller
 //            die;
             $response = $this->restfull->cUrl($params, $endpoint, $metodo);
             $data['response'] = $response;
+            $data['mensagem'] = $response;
         }
         if ($this->input->post('salvar') == null and $idcontact != '') {
 
@@ -110,6 +111,7 @@ class Contact extends CI_Controller
             );
             $response = $this->restfull->cUrl($params, $endpoint, $metodo);
             $data['response'] = $response;
+            $data['mensagem'] = $response;
 //            print_r($response);
 //            die;
         }

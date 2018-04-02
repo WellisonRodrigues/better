@@ -18,6 +18,13 @@
             </div>
 
         </div>
+        <div class="col-md-12">
+            <?php if (isset($mensagem['data'])) {
+
+                echo '<div class=\'alert alert-success\' role=\'alert\'>Salvo com sucesso!</div>';
+
+            } ?>
+        </div>
     </div>
     <br>
     <?php

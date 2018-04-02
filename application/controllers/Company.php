@@ -57,6 +57,8 @@ class Company extends CI_Controller
 //            print_r($response);
 //            die;
             $data['response'] = $response;
+            $data['mensagem'] = $response;
+
         }
 
         $data['menu'] = true;
