@@ -83,7 +83,7 @@
 </header>
 <div class="container-fluid">
     <div style="margin-top: 35%;margin-left: 75%; margin-right: 0">
-        <a href="<?php echo base_url() ?>login"
+        <a href="<?php echo base_url() ?>login">
         <button type="button" class="btn btn-danger btn-lg">Entre para o Better
             Planning
         </button>
