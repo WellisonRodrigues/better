@@ -161,18 +161,18 @@ if (isset($id)) {
                 $('#start').val(startDate.format());
                 $('#finish').val(endDate.format());
                 // alert('selected ' + startDate.format() + ' to ' + endDate.format());
-            },
-
-            eventClick: function(calEvent, jsEvent, view) {
-
-                alert('Event: ' + calEvent.title);
-                alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-                alert('View: ' + view.name);
-
-                // change the border color just for fun
-                $(this).css('border-color', 'red');
-
             }
+            //
+            // eventClick: function(calEvent, jsEvent, view) {
+            //
+            //     alert('Event: ' + calEvent.title);
+            //     alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+            //     alert('View: ' + view.name);
+            //
+            //     // change the border color just for fun
+            //     $(this).css('border-color', 'red');
+            //
+            // }
 
 
         });
