@@ -49,14 +49,15 @@ class Calendar extends CI_Controller
             $params = '';
             $response = $this->restfull->cUrl($params, $endpoint, $metodo);
             $table = $response;
-//            print_r($response);
+            //            print_r($response);
 //            die;
-            if ($table['data'] != null) {
+            if (isset($table['data'])) {
                 foreach ($table as $data) {
                     foreach ($data as $row) {
                         $new[] = array('title' => $row['attributes']['action'],
                             'start' => $row['attributes']['start'],
-                            'end' => $row['attributes']['finish']
+                            'end' => $row['attributes']['finish'],
+                            'id' => $row['id']
 
                         );
                     }
@@ -80,7 +81,8 @@ class Calendar extends CI_Controller
                     foreach ($data as $row) {
                         $new[] = array('title' => $row['attributes']['action'],
                             'start' => $row['attributes']['start'],
-                            'end' => $row['attributes']['finish']
+                            'end' => $row['attributes']['finish'],
+                            'id' => $row['id']
 
                         );
                     }

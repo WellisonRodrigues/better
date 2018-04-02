@@ -8,6 +8,11 @@
 
 //print_r($mensagem);
 
+if (isset($id)) {
+    $id_user_get = $id;
+} else {
+    $id_user_get = null;
+}
 ?>
 
 <script src='<?php echo base_url() ?>CSSs/fullcalendar/lib/jquery.min.js'></script>
@@ -27,14 +32,34 @@
             <div class="modal-body">
                 <div class="form-group">
 
-                    <label for="exampleForm2">Titulo</label>
-                    <input type="text"
-                           value=""
-                           id="exampleForm2" name="action" class="form-control" required>
+                    <label for="exampleForm2">Ação</label>
+                    <select class="form-control" name="action" id="exampleFormControlSelect1">
+                        <option value="compromisso_pessoal">COMPROMISSO PESSOAL</option>
+                        <option value="ligar">LIGAR</option>
+                        <option value="cobrar_recomendacao">COBRAR POR RECOMENDAÇÕES</option>
+                        <option value="1_contato">1° CONTATO</option>
+                        <option value="1_visita">1ª VISITA</option>
+                        <option value="2_visita">2ª VISITA</option>
+                        <option value="revisita">N VISITAS</option>
+                        <option value="apresentacao">APRESENTAÇÃO DE PLANO</option>
+                        <option value="reuniao_adesao">REUNIÃO DE ADESÃO</option>
+                        <option value="pendecias_contrato">PENDÊNCIAS DE CONTRATO</option>
+                        <option value="relacionamento">RELACIONAMENTO</option>
+                        <option value="renegociacao">RENEGOCIAÇÃO</option>
+                        <option value="entrega_doc">ENTREGA DE DOCS</option>
+                        <option value="retirada_doc">RETIRADA DE DOCS</option>
+                        <option value="enviar_email">ENVIAR EMAIL</option>
+                        <option value="cobrar_telefone">COBRAR TELEFONES</option>
+                        <option value="enviar_estudo">ENVIAR ESTUDO</option>
+                        <option value="vista_gestor">VISITA COM GESTOR</option>
+                        <option value="homologacao">HOMOLOGAÇÃO</option>
+                        <option value="conciliacao">CONCILIAÇÃO</option>
+                    </select>
+                    <!--                        <option value="">RELACIONAMENTO</option>-->
                     <label for="exampleForm2">Status</label>
                     <input type="text"
-                           value=""
-                           id="exampleForm2" name="status" class="form-control" required>
+                           value="agendado"
+                           id="exampleForm2" readonly name="status" class="form-control" required>
                     <label for="exampleForm2">Descrição</label>
                     <input type="text"
                            value=""
@@ -55,13 +80,14 @@
 
                     </select>
                     <br>
-                    <input type="datetime"
+                    <label for="start">Data</label>
+                    <input type="date"
                            value=""
                            id="start" name="start" class="form-control" required>
-                    Até
-                    <input type="datetime"
+                    <label for="hora">Hora</label>
+                    <input type="time"
                            value=""
-                           id="finish" name="finish" class="form-control">
+                           id="hora" name="hora" class="form-control">
 
                 </div>
             </div>
@@ -86,9 +112,9 @@
 
         // alert('ok')
         // page is now ready, initialize the calendar...
-        var id = '<?php echo @$id?>';
-        alert(id);
-        if (id ^ '') {
+        var id_user = '<?php echo $id_user_get?>';
+        // alert(id_user);
+        if (id_user === null) {
             $.ajax({
                 url: "<?php echo base_url('Calendar/get_calendar')?>",
                 type: 'POST',
@@ -100,7 +126,8 @@
             });
         } else {
             $.ajax({
-                url: "<?php echo base_url('Calendar/get_calendar/')?> " + id,
+
+                url: '<?php echo base_url("Calendar/get_calendar/$id_user_get")?>',
                 type: 'POST',
                 data: 'type=fetch',
                 async: false,
@@ -109,6 +136,7 @@
                 }
             });
         }
+
         $('#calendar').fullCalendar({
             // put your options and callbacks here
             selectable: true,
@@ -126,7 +154,7 @@
             dayClick: function (startDate, endDate) {
                 $('#mymodal').modal('show');
                 $('#start').val(startDate.format());
-                $('#finish').val(endDate.format());
+                $('#hora').val(startDate.format('HH:mm'));
             },
             select: function (startDate, endDate) {
                 $('#mymodal').modal('show');
@@ -134,6 +162,17 @@
                 $('#finish').val(endDate.format());
                 // alert('selected ' + startDate.format() + ' to ' + endDate.format());
             },
+
+            eventClick: function(calEvent, jsEvent, view) {
+
+                alert('Event: ' + calEvent.title);
+                alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+                alert('View: ' + view.name);
+
+                // change the border color just for fun
+                $(this).css('border-color', 'red');
+
+            }
 
 
         });
