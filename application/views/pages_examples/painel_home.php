@@ -21,13 +21,18 @@
                 <h3><b>Usuários Cadastrados</b></h3>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="text-right">
-                <a href="<?php echo base_url() ?>Users/new_user">
-                    <button type="button" class="btn btn-indigo"> Adicionar usuário</button>
-                </a>
+        <?php if ($this->session->userdata('user')['role'] != 'list'
+            and $this->session->userdata('user')['role'] != 'schedule'
+            and $this->session->userdata('user')['role'] != 'list_schedule'
+        ) { ?>
+            <div class="col-md-6">
+                <div class="text-right">
+                    <a href="<?php echo base_url() ?>Users/new_user">
+                        <button type="button" class="btn btn-indigo"> Adicionar usuário</button>
+                    </a>
+                </div>
             </div>
-        </div>
+        <?php } ?>
     </div>
     <!--	<div class="col-md-12" style="margin-top: 1%;">-->
     <div class="row" style="margin-top: 1%;">
