@@ -15,7 +15,8 @@ if ($menu == true) {
             <div class="col-md-2"
                  style="background-color:#43425D; padding: 20px; margin: 0; height:auto;">
                 <ul class="nav flex-column">
-                    <?php if ($this->session->userdata("user")['role'] == null) { ?>
+                    <?php if ($this->session->userdata("user")['role'] == null or
+                        $this->session->userdata("user")['role'] == 'master') { ?>
                         <li class="nav-item">
                             <a class="nav-link active" href="<?php echo base_url() . 'company' ?>"><i
                                         class="fas fa-chart-bar"></i>
@@ -33,7 +34,8 @@ if ($menu == true) {
                                 Contatos</a>
                         </li>
                     <?php }
-                    if ($this->session->userdata("user")['role'] == 'list') {
+                    if ($this->session->userdata("user")['role'] == 'list' or
+                        $this->session->userdata("user")['role'] == 'list_schedule') {
                         ?>
                         <li class="nav-item">
                             <a class="nav-link active" href="<?php echo base_url() . 'Contact' ?>"><i

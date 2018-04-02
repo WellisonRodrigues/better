@@ -1,7 +1,7 @@
 <?php
 
 
-//print_r($table);
+//print_r($this->session->userdata('user'));
 
 ?>
 <?php
