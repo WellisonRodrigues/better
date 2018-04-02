@@ -90,7 +90,7 @@
                 $url_edit = base_url() . 'Contact/new_contact/' . $subrow['id'];
                 $button = '<div class="text-center"><a href="' . $url_edit . '">  <i class="fas fa-pencil-alt" style="color: grey"></i></a></div>';
                 $button_del = '<div class="text-center"><a class="delete" href="' . $url_del . '">  <b style="color: grey" class="fas fa-times"></b></a></div>';
-                $button_detail = '<div class="text-center"><b style="color: grey" class="fas fa-eye"></b></div>';
+                $button_detail = '<div class="text-center"><a href="' . $url_edit . '/true">  <b style="color: grey" class="fas fa-eye"></b></a></div>';
                 @$company = $subrow['relationships']['sub-company-holding']['data']['id'];
 
                 if ($this->session->userdata('user')['role'] == 'list'

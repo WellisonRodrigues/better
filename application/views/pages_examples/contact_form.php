@@ -8,6 +8,7 @@
 //if (isset($response)) {
 //    print_r($response);
 //}
+
 ?>
 <div class="container" style="margin-top: 1%;">
     <div class="row">
@@ -43,7 +44,8 @@
             <div class="col-md-6">
                 <label for="exampleForm2">Prmeiro nome</label>
                 <input type="text" id="exampleForm2" name="first-name"
-                       value="<?php echo @$response['data']['attributes']['first-name'] ?>" required class="form-control">
+                       value="<?php echo @$response['data']['attributes']['first-name'] ?>" required
+                       class="form-control">
             </div>
             <div class="col-md-6">
                 <label for="exampleForm2">Segundo nome</label>
@@ -112,10 +114,20 @@
             <a href="<?php echo base_url() ?>Contact">
                 <button type="button" class="btn btn-outline-primary"> Cancelar</button>
             </a>
-            <button type="submit" class="btn btn-indigo" value="salvar" name="salvar"> Salvar</button>
+            <?php
+            if ($ready_only == false) {
+                echo '<button type="submit" class="btn btn-indigo" value="salvar" name="salvar"> Salvar</button>';
+            }
+            ?>
+
         </div>
         <?php
         echo form_close();
         ?>
     </div>
 </div>
+<?php
+if ($ready_only == true) {
+    echo '<script>$(".form-control").attr("readonly",true)</script>';
+}
+?>

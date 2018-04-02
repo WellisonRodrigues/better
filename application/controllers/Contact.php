@@ -55,8 +55,13 @@ class Contact extends CI_Controller
 
     }
 
-    public function new_contact($idcontact = null)
+    public function new_contact($idcontact = null, $ready_only = null)
     {
+        if ($ready_only == null) {
+            $data['ready_only'] = false;
+        } else {
+            $data['ready_only'] = true;
+        }
         if ($this->input->post('salvar') == 'salvar' and $idcontact == null) {
             $endpoint = 'api/v1/contacts';
             $metodo = 'POST';
