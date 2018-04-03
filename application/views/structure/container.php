@@ -33,6 +33,16 @@ if ($menu == true) {
                                         class="fas fa-users"></i>
                                 Contatos</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="<?php echo base_url() . 'Subscription' ?>"><i
+                                        class="fas fa-info"></i>
+                                Assinaturas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="<?php echo base_url() . 'License' ?>"><i
+                                        class="fas fa-key"></i>
+                                Licenças</a>
+                        </li>
                     <?php }
                     if ($this->session->userdata("user")['role'] == 'list' or
                         $this->session->userdata("user")['role'] == 'list_schedule') {
@@ -61,7 +71,7 @@ if ($menu == true) {
                         <a class="nav-link"
                            href="<?php echo base_url() . 'Users/new_user/' . $this->session->userdata("user")['id'] ?>"><i
                                     class="fas fa-cogs"></i>
-                            Configuração</a>
+                            Configurações</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url() . 'Sair' ?>"><i class="fas fa-sign-out-alt"></i>

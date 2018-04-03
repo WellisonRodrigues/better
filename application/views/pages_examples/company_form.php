@@ -6,8 +6,10 @@
  * Time: 17:34
  */
 //if (isset($response)) {
-//    print_r($response);
+//echo '<pre>';
+//print_r($mensagem);
 //}
+
 ?>
 <div class="container" style="margin-top: 1%;">
     <div class="col-md-6">
@@ -18,11 +20,15 @@
 
     </div>
     <div class="col-md-12">
-        <?php if (isset($mensagem['data'])) {
+        <?php
+        if (isset($mensagem)) {
+            if (isset($mensagem['data']['id'])) {
 
-            echo '<div class=\'alert alert-success\' role=\'alert\'>Salvo com sucesso!</div>';
+                echo '<div class=\'alert alert-success\' role=\'alert\'>Salvo com sucesso!</div>';
 
-        } ?>
+            }
+        }
+        ?>
     </div>
 
 
@@ -33,8 +39,20 @@
         <!-- Default input -->
         <label for="exampleForm2">Nome da Empresa</label>
         <input type="text" id="exampleForm2" name="name" class="form-control">
-        <label for="exampleForm2">Subscription</label>
-        <input type="text" id="exampleForm2" name="subscriptions" class="form-control">
+        <label for="exampleForm">Assinaturas</label>
+        <select class="form-control" id="exampleForm" name="subscriptions" required>
+            <?php
+            echo "<option> -- Escolha uma opção -- </option>";
+            foreach ($subscribe as $line) {
+                foreach ($line as $row) {
+                    $code = $row['attributes']['recurrency-code'];
+                    $ide = $row['id'];
+                    echo "<option value='$ide'> $code </option>";
+                }
+            }
+            ?>
+
+        </select>
         <br>
         <div class="text-right">
             <a href="<?php echo base_url() ?>Company">

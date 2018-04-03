@@ -37,7 +37,13 @@ if (isset($response['data']['id'])) {
 
                 echo '<div class=\'alert alert-success\' role=\'alert\'>Salvo com sucesso!</div>';
 
-            } ?>
+            }
+            if (isset($mensagem['errors'][0]['detail'])) {
+                $erro = $mensagem['errors'][0]['detail'];
+                echo "<div class='alert alert-danger' role='alert'>$erro!</div>";
+
+            }
+            ?>
         </div>
     </div>
     <br>

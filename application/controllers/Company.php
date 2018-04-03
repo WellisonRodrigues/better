@@ -31,6 +31,7 @@ class Company extends CI_Controller
             'password' => $this->input->post('senha')
         );
         $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+
         $data['company'] = $response;
         $data['menu'] = true;  // Menu true significa que a pagina tera o menu principal, false deixa a pagina sem menu(menu = header + navbar)
         $data['view'] = 'pages_examples/company_table';
@@ -38,6 +39,22 @@ class Company extends CI_Controller
 
 
     }
+
+//    public function get_subscription()
+//    {
+//        $endpoint = 'api/v1/sub-company-holdings';
+//        $metodo = 'GET';
+//        $params['data']['type'] = 'users';
+//        $params['data'] ['attributes'] = array(
+//            'email' => $this->input->post('email'),
+//            'password' => $this->input->post('senha')
+//        );
+//        $response = $this->restfull->cUrl($params, $endpoint, $metodo);
+//        $data['company'] = $response;
+//        $data['menu'] = true;  // Menu true significa que a pagina tera o menu principal, false deixa a pagina sem menu(menu = header + navbar)
+//        $data['view'] = 'pages_examples/sub';
+//        $this->load->view('structure/container', $data);
+//    }
 
     public function new_company($id = null)
     {
@@ -56,10 +73,16 @@ class Company extends CI_Controller
             $response = $this->restfull->cUrl($params, $endpoint, $metodo);
 //            print_r($response);
 //            die;
-            $data['response'] = $response;
+//            $data['response'] = $response;
             $data['mensagem'] = $response;
 
+
         }
+        $newpoint = 'api/v1/subscriptions';
+        $newmetodo = 'GET';
+        $newparams = '';
+        $newresponse = $this->restfull->cUrl($newparams, $newpoint, $newmetodo);
+        $data['subscribe'] = $newresponse;
 
         $data['menu'] = true;
         $data['view'] = 'pages_examples/company_form';
