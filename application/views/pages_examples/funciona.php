@@ -62,7 +62,7 @@
                 </li>
                 <hr class="vl">
                 <li class="nav-item">
-                    <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site/funciona' ?>"><b>COMO
+                    <h2 class="active"><a class="navbar-brand" href="<?php echo base_url() . 'Home_site/funciona' ?>"><b>COMO
                                 FUNCIONA</b></a></h2>
                 </li>
                 <hr class="vl">

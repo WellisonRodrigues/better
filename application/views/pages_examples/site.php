@@ -51,7 +51,7 @@
             <ul class="nav navbar-nav" style="margin-left: 0">
 
                 <li class="nav-item">
-                    <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site' ?>"><b>INÍCIO</b></a></h2>
+                    <h2 class="active"><a class="navbar-brand " href="<?php echo base_url() . 'Home_site' ?>"><b>INÍCIO</b></a></h2>
                 </li>
                 <hr class="vl">
                 <li class="nav-item">

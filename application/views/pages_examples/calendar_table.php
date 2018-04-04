@@ -84,10 +84,10 @@ if (isset($id)) {
                     <input type="date"
                            value=""
                            id="start" name="start" class="form-control" required>
-                    <label for="hora">Hora</label>
+                    <label for="time">Hora</label>
                     <input type="time"
                            value=""
-                           id="hora" name="hora" class="form-control">
+                           id="time" name="time" class="form-control">
 
                 </div>
             </div>
@@ -154,12 +154,12 @@ if (isset($id)) {
             dayClick: function (startDate, endDate) {
                 $('#mymodal').modal('show');
                 $('#start').val(startDate.format());
-                $('#hora').val(startDate.format('HH:mm'));
+                $('#time').val(startDate.format('HH:mm'));
             },
             select: function (startDate, endDate) {
                 $('#mymodal').modal('show');
                 $('#start').val(startDate.format());
-                $('#finish').val(endDate.format());
+                $('#time').val(endDate.format());
                 // alert('selected ' + startDate.format() + ' to ' + endDate.format());
             }
             //

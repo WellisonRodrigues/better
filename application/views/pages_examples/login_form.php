@@ -63,7 +63,8 @@
                 <!--                </li>-->
                 <hr class="vl">
                 <li class="nav-item">
-                    <h2><a class="navbar-brand" href="<?php echo base_url() . 'Login' ?>"><b>LOGIN</b></a></h2>
+                    <h2 class="active"><a class="navbar-brand"
+                                          href="<?php echo base_url() . 'Login' ?>"><b>LOGIN</b></a></h2>
                 </li>
             </ul>
         </div>

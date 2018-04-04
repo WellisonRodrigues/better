@@ -108,7 +108,7 @@ class Calendar extends CI_Controller
             'status' => $this->input->post('status'),
             'description' => $this->input->post('description'),
             'address' => $this->input->post('address'),
-            'start' => $this->input->post('start'),
+            'start' => $this->input->post('start') . ' ' . $this->input->post('time'),
 
         );
         $params['data']['relationships']['contact']['data'] = array('type' => 'contacts', 'id' => $this->input->post('id'));

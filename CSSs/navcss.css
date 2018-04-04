@@ -1,5 +1,4 @@
 
-
 h2 > a {
     position: relative;
     color: red;
@@ -27,6 +26,12 @@ h2 > a:before {
     transform: scaleX(0);
     -webkit-transition: all 0.3s ease-in-out 0s;
     transition: all 0.3s ease-in-out 0s;
+}
+
+.active > a:before {
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
 }
 
 h2 > a:hover:before {
