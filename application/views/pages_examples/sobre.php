@@ -58,14 +58,15 @@
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004D92">
         <!--            <div class="col-md-2"></div>-->
         <div class="mx-auto">
-            <ul class="nav navbar-nav" style="margin-left: 0">
+            <ul class="nav navbar-nav" onmousemove="remove()" onmouseout="aciona()" style="margin-left: 0">
 
                 <li class="nav-item">
                     <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site' ?>"><b>INÍCIO</b></a></h2>
                 </li>
                 <hr class="vl">
                 <li class="nav-item">
-                    <h2 class="active"><a class="navbar-brand" href="<?php echo base_url() . 'Home_site/sobre' ?>"><b>SOBRE</b></a>
+                    <h2 class="active" id="active"><a class="navbar-brand"
+                                                      href="<?php echo base_url() . 'Home_site/sobre' ?>"><b>SOBRE</b></a>
                     </h2>
                 </li>
                 <hr class="vl">
@@ -103,9 +104,17 @@
 </div>
 
 <map name="shape">
-    <area shape="rect" alt="parte 1" coords="252,67,1316,747" href="<?php echo base_url()?>/Home_site/funciona"/>
+    <area shape="rect" alt="parte 1" coords="252,67,1316,747" href="<?php echo base_url() ?>/Home_site/funciona"/>
     <!--                <area shape="circle" alt="parte 2" coords="500, 250, 10" href="parte2.html"/>-->
     <!--                <area shape = “poly” alt=”parte 3” coords = “116, 207, 186, 299, 49, 296” href=”parte3.html”/>-->
 </map>
 </body>
 
+<script>   function remove() {
+        $('#active').removeClass('active');
+    }
+
+    function aciona() {
+        $('#active').addClass('active');
+    }
+</script>

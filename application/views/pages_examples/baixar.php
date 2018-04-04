@@ -43,7 +43,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004D92">
         <div class="mx-auto">
-            <ul class="nav navbar-nav" style="margin-left: 0">
+            <ul class="nav navbar-nav" onmousemove="remove()" onmouseout="aciona()" style="margin-left: 0">
 
                 <li class="nav-item">
                     <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site' ?>"><b>INÍCIO</b></a></h2>
@@ -60,7 +60,9 @@
                 </li>
                 <hr class="vl">
                 <li class="nav-item">
-                    <h2 class="active"><a class="navbar-brand" href="<?php echo base_url() . 'Home_site/baixar' ?>"><b>BAIXE O APP</b></a>
+                    <h2 class="active" id="active"><a class="navbar-brand"
+                                                      href="<?php echo base_url() . 'Home_site/baixar' ?>"><b>BAIXE O
+                                APP</b></a>
                     </h2>
                 </li>
                 <!--                    <hr class="vl">-->
@@ -80,8 +82,9 @@
     <!--    <div class="col-md-12">-->
     <div class="row">
         <div class="col-md-12" style="margin-top: 10px">
-<!--            <a href="http://play.google.com/store/apps/details?id=com.google.android.apps.maps">-->
-<!--                <img style="display: block;position: ; z-index: 1000" src="--><?php //echo base_url() ?><!--img/playgoogle.png"></a>-->
+            <!--            <a href="http://play.google.com/store/apps/details?id=com.google.android.apps.maps">-->
+            <!--                <img style="display: block;position: ; z-index: 1000" src="-->
+            <?php //echo base_url() ?><!--img/playgoogle.png"></a>-->
             <img src="<?php echo base_url() ?>img/04_baixe_app.png" width="100%" height="auto"
                  usemap="#shape">
             <map name="shape">
@@ -94,3 +97,11 @@
 </div>
 </body>
 
+<script>   function remove() {
+        $('#active').removeClass('active');
+    }
+
+    function aciona() {
+        $('#active').addClass('active');
+    }
+</script>

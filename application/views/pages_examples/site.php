@@ -48,10 +48,12 @@
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004D92">
         <!--            <div class="col-md-3"></div>-->
         <div class="mx-auto">
-            <ul class="nav navbar-nav" style="margin-left: 0">
+            <ul class="nav navbar-nav" onmousemove="remove()" onmouseout="aciona()" style="margin-left: 0">
 
                 <li class="nav-item">
-                    <h2 class="active"><a class="navbar-brand " href="<?php echo base_url() . 'Home_site' ?>"><b>INÍCIO</b></a></h2>
+                    <h2 id="active" class="active"><a class="navbar-brand "
+                                                      href="<?php echo base_url() . 'Home_site' ?>"><b>INÍCIO</b></a>
+                    </h2>
                 </li>
                 <hr class="vl">
                 <li class="nav-item">
@@ -81,14 +83,45 @@
     </nav>
     <!--    </div>-->
 </header>
-<div class="container-fluid">
-    <div style="margin-top: 35%;margin-left: 75%; margin-right: 0">
-        <a href="<?php echo base_url() ?>login">
-        <button type="button" class="btn btn-danger btn-lg">Entre para o Better
-            Planning
-        </button>
-        </a>
+<section>
+    <div class="container-fluid">
+        <div style="margin-top: 35%;margin-left: 75%; margin-right: 0">
+            <a href="<?php echo base_url() ?>login">
+                <button type="button" class="btn btn-danger btn-lg">Entre para o Better
+                    Planning
+                </button>
+            </a>
+        </div>
     </div>
-</div>
+</section>
 </body>
 
+<script>
+
+    // $("li").hover(function () {
+    //     $('h2').removeClass();
+    // });
+
+
+    function remove() {
+        $('#active').removeClass('active');
+    }
+
+    function aciona() {
+        $('#active').addClass('active');
+    }
+
+    // $('.nav').onfocus( $('h2').removeClass());
+    // {
+    //    ;
+    // } else {
+    //     $('#active').addClass('active');
+    // }
+    //
+    // $('li').hover(function () {
+    //
+    // })
+    // $('li').hover(function () {
+    //     $('h2').removeClass();
+    // })
+</script>

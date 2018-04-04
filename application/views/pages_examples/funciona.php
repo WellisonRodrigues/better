@@ -24,6 +24,7 @@
         height: 900px;
         background-image: url("<?php echo base_url()?>img/03_como_funciona_2.png")
     }
+
     html, body, article {
         height: 100%;
         width: 100%;
@@ -50,7 +51,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #004D92">
         <div class="mx-auto">
-            <ul class="nav navbar-nav" style="margin-left: 0">
+            <ul class="nav navbar-nav" onmousemove="remove()" onmouseout="aciona()" style="margin-left: 0">
 
                 <li class="nav-item">
                     <h2><a class="navbar-brand" href="<?php echo base_url() . 'Home_site' ?>"><b>INÍCIO</b></a></h2>
@@ -62,7 +63,8 @@
                 </li>
                 <hr class="vl">
                 <li class="nav-item">
-                    <h2 class="active"><a class="navbar-brand" href="<?php echo base_url() . 'Home_site/funciona' ?>"><b>COMO
+                    <h2 class="active" id="active"><a class="navbar-brand"
+                                                      href="<?php echo base_url() . 'Home_site/funciona' ?>"><b>COMO
                                 FUNCIONA</b></a></h2>
                 </li>
                 <hr class="vl">
@@ -95,3 +97,11 @@
 </div>
 </body>
 
+<script>   function remove() {
+        $('#active').removeClass('active');
+    }
+
+    function aciona() {
+        $('#active').addClass('active');
+    }
+</script>
