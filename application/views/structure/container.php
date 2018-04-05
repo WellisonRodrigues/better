@@ -14,32 +14,32 @@ if ($menu == true) {
         <div class="row" style="height: auto; min-height: 100%">
             <div class="col-md-2"
                  style="background-color:#43425D; padding: 20px; margin: 0; height:auto;">
-                <ul class="nav flex-column">
+                <ul class="nav flex-column md-pills">
                     <?php if ($this->session->userdata("user")['role'] == null or
                         $this->session->userdata("user")['role'] == 'master') { ?>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?php echo base_url() . 'company' ?>"><i
+                            <a class="nav-link" href="<?php echo base_url() . 'company' ?>"><i
                                         class="fas fa-chart-bar"></i>
                                 Empresas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?php echo base_url() . 'users' ?>"><i
+                            <a class="nav-link" href="<?php echo base_url() . 'users' ?>"><i
                                         class="far fa-user"></i>
                                 Usuários</a>
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?php echo base_url() . 'Contact' ?>"><i
+                            <a class="nav-link" href="<?php echo base_url() . 'Contact' ?>"><i
                                         class="fas fa-users"></i>
                                 Contatos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?php echo base_url() . 'Subscription' ?>"><i
+                            <a class="nav-link" href="<?php echo base_url() . 'Subscription' ?>"><i
                                         class="fas fa-info"></i>
                                 Assinaturas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="<?php echo base_url() . 'License' ?>"><i
+                            <a class="nav-link" href="<?php echo base_url() . 'License' ?>"><i
                                         class="fas fa-key"></i>
                                 Licenças</a>
                         </li>
