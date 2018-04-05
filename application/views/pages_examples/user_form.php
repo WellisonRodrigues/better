@@ -9,7 +9,7 @@
 //    print_r($this->session->userdata("user"));
 //}
 //print_r($mensagem);
-
+//print_r($response);
 if (isset($response['data']['id'])) {
     if ($response['data']['id'] == $this->session->userdata("user")['id']) {
         $title = 'Configurações';

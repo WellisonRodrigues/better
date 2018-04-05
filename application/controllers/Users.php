@@ -88,7 +88,7 @@ class Users extends CI_Controller
                 'name' => $this->input->post('name'),
                 'email' => $this->input->post('email'),
                 'register-number' => $this->input->post('register-number'),
-//                    'role' => $this->input->post('role'),
+                    'role' => $this->input->post('role'),
 //                    'password' => $this->input->post('password')
             );
                 $params['data'] ['relationships']['sub-company-holding']['data'] = array(
